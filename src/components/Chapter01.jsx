@@ -1,46 +1,57 @@
 import React from "react";
 import ScrollStack, { ScrollStackItem } from "./ScrollStack";
 
+import img1 from "../assets/images/chp1_img1.jpg";
+import img2 from "../assets/images/chp1_img2.jpg";
+import img3 from "../assets/images/chp1_img3.jpg";
+import img4 from "../assets/images/chp1_img4.jpg";
+import img5 from "../assets/images/chp1_img5.jpg";
+import img6 from "../assets/images/chp1_img6.jpg";
+
 const slides = [
   {
-    image: "src/assets/images/chp1_img1.jpg",
+    image: img1,
     alt: "The beginning of the wedding story",
     eyebrow: "A day to remember",
     title: "A Beautiful Beginning",
     description: "Some days become memories before they even end.",
   },
   {
-    image: "src/assets/images/chp1_img2.jpg",
+    image: img2,
     alt: "The couple sharing a special moment",
     eyebrow: "Two hearts, one journey",
     title: "A Moment, Forever",
-    description: "In a world full of fleeting moments, some stay with us forever.",
+    description:
+      "In a world full of fleeting moments, some stay with us forever.",
   },
   {
-    image: "src/assets/images/chp1_img3.jpg",
+    image: img3,
     alt: "The details that made the wedding special",
     eyebrow: "Every detail tells a story",
     title: "The Beauty Between Moments",
-    description: "The little things, the quiet glances, the memories no photograph can fully capture.",
+    description:
+      "The little things, the quiet glances, the memories no photograph can fully capture.",
   },
   {
-    image: "src/assets/images/chp1_img4.jpg",
+    image: img4,
     alt: "The joy of the wedding celebration",
     eyebrow: "A celebration of love",
     title: "Surrounded by Love",
     description: "Countless blessings, and a day filled with happiness.",
   },
   {
-    image: "src/assets/images/chp1_img5.jpg",
+    image: img5,
     alt: "A tender moment between the couple",
     eyebrow: "Beyond the photographs",
     title: "A Promise Without End",
-    description: "Not just a moment to cherish, but a promise to carry into every tomorrow.",
+    description:
+      "Not just a moment to cherish, but a promise to carry into every tomorrow.",
   },
   {
-    image: "src/assets/images/chp1_img6.jpg",
+    image: img6,
     alt: "The beginning of a shared future",
-    title: "Wishing you both a very happy anniversary!",
+    eyebrow: "Forever and always",
+    title: "Wishing You a Happy Anniversary!",
     description: "May your love grow stronger with every passing year.",
   },
 ];
@@ -86,6 +97,7 @@ const Chapter01 = () => {
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
                 onError={(event) => {
+                  console.error("Failed to load image:", slide.image);
                   event.currentTarget.style.opacity = "0";
                 }}
               />
@@ -93,9 +105,11 @@ const Chapter01 = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/10" />
 
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-12">
-                <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#D6B978] sm:text-xs">
-                  {slide.eyebrow}
-                </p>
+                {slide.eyebrow && (
+                  <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-[#D6B978] sm:text-xs">
+                    {slide.eyebrow}
+                  </p>
+                )}
 
                 <h3 className="max-w-3xl font-serif text-3xl leading-tight text-white sm:text-5xl md:text-6xl">
                   {slide.title}

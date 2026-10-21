@@ -2,13 +2,15 @@ import { useState } from "react";
 import ScrollExpand from "./components/ScrollExpand";
 import Chapter01 from "./components/Chapter01";
 
+import firstImage from "./assets/images/1st_img.jpg";
+
 const App = () => {
   const [showChapter01, setShowChapter01] = useState(false);
 
   return (
     <main className="w-full overflow-x-clip bg-[#100e0c]">
       <ScrollExpand
-        src="src/assets/images/1st_img.jpg"
+        src={firstImage}
         alt="Wedding celebration"
         title=""
         scrollHint="Scroll to begin ↓"
